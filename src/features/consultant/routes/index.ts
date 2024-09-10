@@ -1,1 +1,1 @@
-export * from "./consultant-list"
+export * from "./consultant-list";

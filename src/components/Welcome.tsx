@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const Welcome:React.FC = () => {
-  return (
-    <div>Welcome</div>
-  )
-}
+const Welcome: React.FC = () => {
+  return <div>Welcome</div>;
+};
 
-export default Welcome
+export default Welcome;

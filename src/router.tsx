@@ -16,12 +16,10 @@ import { ParentSaleList } from "./features/sales/parent/routes/parent-sale-list"
 import { FollowupList } from "./features/followups/child/routes";
 
 import { ParentFollowupList } from "./features/followups/parent/routes/parent-followup-list";
-import { AuthLayout } from './components/layout/auth-layout';
-import { Login } from './features/auth/routes/login';
-import { ForgotPassword } from './features/auth/routes/forgot-password';
+import { AuthLayout } from "./components/layout/auth-layout";
+import { Login } from "./features/auth/routes/login";
+import { ForgotPassword } from "./features/auth/routes/forgot-password";
 import { DiagnosisList } from "./features/diagnoses/routes/diagnosis-list";
-
-
 
 const router = createBrowserRouter([
   {
@@ -45,7 +43,7 @@ const router = createBrowserRouter([
       { path: "/mother/follow-ups", element: <ParentFollowupList /> },
     ],
   },
-  
+
   {
     path: "/auth",
     element: <AuthLayout />,
@@ -69,14 +67,8 @@ const router = createBrowserRouter([
     path: "/about",
     element: <h1>About</h1>,
   },
-
-
 ]);
 
 export function Router() {
-  return (
-
-  <RouterProvider router={router} />
-  
-);
+  return <RouterProvider router={router} />;
 }

@@ -5,10 +5,12 @@ export const theme = createTheme({
 });
  */
 
-
-import { MantineColorsTuple, MantineProvider, MantineThemeOverride } from "@mantine/core";
+import {
+  MantineColorsTuple,
+  MantineProvider,
+  MantineThemeOverride,
+} from "@mantine/core";
 import { colors } from "./colors";
-
 
 export const theme: MantineThemeOverride = {
   fontFamily: "Main Font, sans-serif",
@@ -44,6 +46,4 @@ export const theme: MantineThemeOverride = {
 };
 
 // Wrap your app with MantineProvider
-<MantineProvider theme={theme}>
-  {/* your app code */}
-</MantineProvider>
+<MantineProvider theme={theme}>{/* your app code */}</MantineProvider>;

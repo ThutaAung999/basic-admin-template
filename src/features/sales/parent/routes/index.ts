@@ -1,1 +1,1 @@
-export * from './parent-sale-list'
+export * from "./parent-sale-list";

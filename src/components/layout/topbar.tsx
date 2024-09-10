@@ -3,8 +3,7 @@ import { Avatar, Menu } from "@mantine/core";
 import { FiMenu } from "react-icons/fi";
 
 export const Topbar = ({ toggle }: { toggle: () => void }) => {
-
-  const {user , logout} =useAuth();
+  const { user, logout } = useAuth();
 
   return (
     <div className="bg-gray-200 flex justify-between items-center px-5 h-[60px]">
@@ -21,7 +20,7 @@ export const Topbar = ({ toggle }: { toggle: () => void }) => {
         </div>
       </div>
       <Menu withArrow>
-        <Menu.Target>         
+        <Menu.Target>
           <div>
             {user && (
               <div className="flex gap-2 items-center text-green cursor-pointer">

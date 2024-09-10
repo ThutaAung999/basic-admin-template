@@ -16,10 +16,10 @@ const queryClient = new QueryClient();
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <MantineProvider   theme={theme} >
-      <AuthProvider>
-        <App />
-      </AuthProvider>
+      <MantineProvider theme={theme}>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
       </MantineProvider>
     </QueryClientProvider>
   </StrictMode>,

@@ -1,4 +1,3 @@
-export const ChildCalllogs  = () => {
+export const ChildCalllogs = () => {
   return <div>child-calllogs</div>;
 };
-

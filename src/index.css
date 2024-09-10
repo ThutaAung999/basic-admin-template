@@ -3,60 +3,59 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "Main Font";
-    font-style: normal;
-    font-weight: 300;
-    src: url("./assets/fonts/Poppins-Light.ttf") format("truetype");
+  font-family: "Main Font";
+  font-style: normal;
+  font-weight: 300;
+  src: url("./assets/fonts/Poppins-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Main Font";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/Poppins-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Main Font";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./assets/fonts/Poppins-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Main Font";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./assets/fonts/Poppins-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Main Font";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./assets/fonts/Poppins-Bold.ttf") format("truetype");
+}
+
+body {
+  @apply bg-[#edf1f7] h-screen;
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
-  
-  @font-face {
-    font-family: "Main Font";
-    font-style: normal;
-    font-weight: 400;
-    src: url("./assets/fonts/Poppins-Regular.ttf") format("truetype");
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
-  
-  @font-face {
-    font-family: "Main Font";
-    font-style: normal;
-    font-weight: 500;
-    src: url("./assets/fonts/Poppins-Medium.ttf") format("truetype");
-  }
-  
-  @font-face {
-    font-family: "Main Font";
-    font-style: normal;
-    font-weight: 600;
-    src: url("./assets/fonts/Poppins-SemiBold.ttf") format("truetype");
-  }
-  
-  @font-face {
-    font-family: "Main Font";
-    font-style: normal;
-    font-weight: 700;
-    src: url("./assets/fonts/Poppins-Bold.ttf") format("truetype");
-  }
-  
-  body {
-    @apply bg-[#edf1f7] h-screen;
-  }
-  
-  @layer utilities {
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-  
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .no-scrollbar {
-      -ms-overflow-style: none; /* IE and Edge */
-      scrollbar-width: none; /* Firefox */
-    }
-  }
-  
-  .text-wrap {
-    white-space: normal;
-    word-wrap: break-word;
-    word-break: break-word;
-  }
-  
+}
+
+.text-wrap {
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-word;
+}

@@ -1,7 +1,3 @@
-
 export const FollowupList = () => {
-  return (
-    <div>followup-list</div>
-  )
-}
-
+  return <div>followup-list</div>;
+};
