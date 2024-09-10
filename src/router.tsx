@@ -4,7 +4,7 @@ import LandingPage from "./components/landing-page";
 import { Dashboard } from "./features/dashboard";
 import { MainLayout } from "./components/layout/main-layout";
 import { ConsultantList } from "./features/consultant/routes/consultant-list";
-import { DiagnosesList } from "./features/diagnoses/routes/diagnoses-list";
+
 import { UserList } from "./features/user/routes/user-list";
 import { ChildPatientList } from "./features/patients/child/routes/child-patient-list";
 import { ParentPatientList } from "./features/patients/parent/routes/parent-patient-list";
@@ -19,6 +19,9 @@ import { ParentFollowupList } from "./features/followups/parent/routes/parent-fo
 import { AuthLayout } from './components/layout/auth-layout';
 import { Login } from './features/auth/routes/login';
 import { ForgotPassword } from './features/auth/routes/forgot-password';
+import { DiagnosisList } from "./features/diagnoses/routes/diagnosis-list";
+
+
 
 const router = createBrowserRouter([
   {
@@ -27,7 +30,7 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <Dashboard /> },
       { path: "consultants", element: <ConsultantList /> },
-      { path: "diagnoses", element: <DiagnosesList /> },
+      { path: "diagnoses", element: <DiagnosisList /> },
       {
         path: "users",
         element: <UserList />,
