@@ -160,7 +160,8 @@ export const DiagnosisList = () => {
                     </div>
                   )}
                 </>
-              )}||[];
+              )}
+              ||[];
             </Tabs.Panel>
             <Tabs.Panel value="mother">
               {isGettingMotherDiagnoses && (
@@ -185,7 +186,8 @@ export const DiagnosisList = () => {
                         total={Math.ceil(motherDiagnoses?.count / limit)}
                         onChange={onPaginate}
                       />
-                    )}||[];
+                    )}
+                    ||[];
                   </div>
                 </>
               )}
