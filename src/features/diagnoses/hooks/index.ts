@@ -1,1 +1,1 @@
-export * from './useDiagnosisFilter'
+export * from "./useDiagnosisFilter";

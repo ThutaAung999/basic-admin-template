@@ -1,1 +1,1 @@
-export * from './get-child-diagnoses'
+export * from "./get-child-diagnoses";

@@ -16,7 +16,6 @@ import { Button, Header, Pagination, Table } from "@/components";
 import { useState } from "react";
 import { Searchbox } from "@/components/ui/search-box";
 
-
 const tableHeaders = {
   name: "Name",
   action: "Action",
@@ -35,7 +34,6 @@ const AddConsultant = () => {
   );
 };
 
-
 export const ConsultantList = () => {
   const { onSearch, onPaginate, getAllSearchParams } = useConsultantFilter();
   const { page = 1, limit = 10, search } = getAllSearchParams();
@@ -43,21 +41,19 @@ export const ConsultantList = () => {
   const [value, setValue] = useState(search);
   const debouncedOnSearch = useDebouncedCallback(onSearch, 500);
 
-
-  const { data ,isLoading} = useGetConsultants({
+  const { data, isLoading } = useGetConsultants({
     limit,
     search,
-    skip:(page-1)*limit,
+    skip: (page - 1) * limit,
   });
-
-
 
   const [oldData, setOldData] = useState<Consultant | undefined>();
 
   const [isOpen, { open, close }] = useDisclosure();
 
-  return (<div>
-          <Header title="Consultants">
+  return (
+    <div>
+      <Header title="Consultants">
         <Searchbox
           name="search"
           placeholder="Search by Consultant Name"
@@ -110,6 +106,5 @@ export const ConsultantList = () => {
       </div>
       <ConsultantFormModal isOpen={isOpen} close={close} oldData={oldData} />
     </div>
-  
-      )
+  );
 };

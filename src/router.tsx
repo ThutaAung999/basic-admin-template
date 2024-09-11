@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LandingPage from "./components/landing-page";
 import { Dashboard } from "./features/dashboard";
 
-
 import { AuthLayout } from "./components/layout/auth-layout";
 import { Login } from "./features/auth/routes/login";
 

@@ -1,1 +1,1 @@
-export * from './get-mother-diagnoses'
+export * from "./get-mother-diagnoses";

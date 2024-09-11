@@ -3,7 +3,6 @@ import { useElementSize } from "@mantine/hooks";
 import clsx from "clsx";
 import { ReactNode } from "react";
 
-
 type Props<T extends Record<string, unknown>> = {
   data: T[];
   headerMapping: Partial<Record<keyof T | (string & object), ReactNode>>;

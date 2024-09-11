@@ -61,39 +61,39 @@ export const DiagnosisList = () => {
       skip: (page - 1) * limit,
     });
 
-    const getData = async () => {
-      if (tab === "child") {
-        try {
-          const { data } = await getChildDiagnoses({
-            search,
-            limit: 0,
-            type: "new",
-          });
-          return data;
-        } catch (error) {
-          if (error instanceof Error) {
-            toast.error({ message: error.message });
-          }
-        }
-      } else if (tab === "mother") {
-        try {
-          const { data } = await getMotherDiagnoses({
-            search,
-            limit: 0,
-            type: "new",
-          });
-          return data;
-        } catch (error) {
-          if (error instanceof Error) {
-            toast.error({ message: error.message });
-          }
+  const getData = async () => {
+    if (tab === "child") {
+      try {
+        const { data } = await getChildDiagnoses({
+          search,
+          limit: 0,
+          type: "new",
+        });
+        return data;
+      } catch (error) {
+        if (error instanceof Error) {
+          toast.error({ message: error.message });
         }
       }
-    };
-  
-    const formatData = (diagnosis: Diagnosis) => {
-      return { Name: diagnosis?.name };
-    };
+    } else if (tab === "mother") {
+      try {
+        const { data } = await getMotherDiagnoses({
+          search,
+          limit: 0,
+          type: "new",
+        });
+        return data;
+      } catch (error) {
+        if (error instanceof Error) {
+          toast.error({ message: error.message });
+        }
+      }
+    }
+  };
+
+  const formatData = (diagnosis: Diagnosis) => {
+    return { Name: diagnosis?.name };
+  };
   return (
     <div>
       <Header title={tab === "child" ? "Child Diagnoses" : "Mother Diagnoses"}>

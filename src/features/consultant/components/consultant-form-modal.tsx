@@ -5,7 +5,7 @@ import {
   BaseConsultantDto,
   baseConsultantSchema,
   Consultant,
-  useAddConsultant,  
+  useAddConsultant,
   useEditConsultant,
 } from "../";
 import { zodResolver } from "@hookform/resolvers/zod";
