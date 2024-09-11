@@ -7,3 +7,9 @@ export * from "./button";
 export * from "./text-input";
 export * from "./checkbox";
 export * from "./password-input";
+export * from "./modal";
+export *from "./pagination";
+export * from "./table";
+export * from "./search-box";
+export * from "./export-button";
+

@@ -1,25 +1,22 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-//import { Home } from "../src/routes/Home";
+
 import LandingPage from "./components/landing-page";
 import { Dashboard } from "./features/dashboard";
-import { MainLayout } from "./components/layout/main-layout";
-import { ConsultantList } from "./features/consultant/routes/consultant-list";
 
-import { UserList } from "./features/user/routes/user-list";
-import { ChildPatientList } from "./features/patients/child/routes/child-patient-list";
-import { ParentPatientList } from "./features/patients/parent/routes/parent-patient-list";
 
-import { ChildCalllogs } from "./features/calllogs/child/routes/child-calllogs";
-import { ParentCalllogs } from "./features/calllogs/parent/routes/parent-calllogs";
-import { ChildSaleList } from "./features/sales/child/routes/child-sale-list";
-import { ParentSaleList } from "./features/sales/parent/routes/parent-sale-list";
-import { FollowupList } from "./features/followups/child/routes";
-
-import { ParentFollowupList } from "./features/followups/parent/routes/parent-followup-list";
 import { AuthLayout } from "./components/layout/auth-layout";
 import { Login } from "./features/auth/routes/login";
-import { ForgotPassword } from "./features/auth/routes/forgot-password";
-import { DiagnosisList } from "./features/diagnoses/routes/diagnosis-list";
+
+import { ConsultantList, DiagnosisList, UserList } from "./features";
+import { ForgotPassword } from "./features/auth";
+import { ParentFollowupList } from "./features/followups";
+import { ParentSaleList } from "./features/sales/parent";
+import { MainLayout } from "./components";
+import { ChildPatientList, ParentPatientList } from "./features/patients";
+import { ChildCalllogs, ParentCalllogs } from "./features/calllogs";
+
+import { ChildSaleList } from "./features/sales/child/routes/child-sale-list";
+import { FollowupList } from "./features/followups/child/routes";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +25,7 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <Dashboard /> },
       { path: "consultants", element: <ConsultantList /> },
-      { path: "diagnoses", element: <DiagnosisList /> },
+      { path: "diagnoses/:tab?", element: <DiagnosisList /> },
       {
         path: "users",
         element: <UserList />,
