@@ -6,10 +6,10 @@ export const Topbar = ({ toggle }: { toggle: () => void }) => {
   const { user, logout } = useAuth();
 
   return (
-    <div className="bg-gray-200 flex justify-between items-center px-5 h-[60px]">
+    <div className="bg-primary-600 flex justify-between items-center px-5 h-[60px]">
       <div className="flex items-center gap-5">
         <FiMenu
-          className="text-3xl text-green-500 cursor-pointer"
+          className="text-3xl text-white cursor-pointer"
           onClick={toggle}
         />
         <div className="h-[60px] flex justify-center items-center">
@@ -25,7 +25,7 @@ export const Topbar = ({ toggle }: { toggle: () => void }) => {
             {user && (
               <div className="flex gap-2 items-center text-green cursor-pointer">
                 <Avatar size="md" src="/images/default_profile.svg" />
-                <div className="flex flex-col">
+                <div className="flex flex-col text-white">
                   <span>{user?.displayName}</span>
                   <span className="text-xs">{user?.email}</span>
                 </div>
