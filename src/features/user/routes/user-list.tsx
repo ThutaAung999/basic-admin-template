@@ -75,7 +75,7 @@ export const UserList = () => {
           </div>
         )}
 
-{users && (
+        {users && (
           <>
             <Table
               headerMapping={{ name: "Name" }}
@@ -94,8 +94,6 @@ export const UserList = () => {
             )}
           </>
         )}
-
-
       </div>
     </div>
   );

@@ -6,7 +6,6 @@ import { FaTrash } from "react-icons/fa6";
 import { Purchase } from "../types";
 import { formatDateTime } from "@/features/utils";
 
-
 type Props = {
   data:
     | {
