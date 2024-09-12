@@ -1,23 +1,12 @@
-import {
-  Button,
-  DatePickerInput,
-  ExportButton,
-  Header,
-  Pagination,
-  Searchbox,
-  Select,
-  Table,
-  Tabs,
-} from "@/components";
+import { DatePickerInput, ExportButton, Select, Tabs } from "@/components";
 import { useState } from "react";
-import { Loader, Tooltip } from "@mantine/core";
-import { FaCheck } from "react-icons/fa";
+import { Loader } from "@mantine/core";
+
 import { useDebouncedCallback, useDisclosure } from "@mantine/hooks";
 import { DatesRangeValue } from "@mantine/dates";
 import { FollowUpStatusModal, getFollowUps } from "../child";
 import { FollowUp, Tab } from "../types";
 import {
-  tableHeaders,
   childTabItems,
   motherTabItems,
   status as statusData,
@@ -25,12 +14,12 @@ import {
   MOTHER_PATIENT_TYPES,
   useFollowUpFilter,
   HeaderSection,
+  TableSection,
 } from "..";
 import { getMotherFollowUp, MotherFollowUpStatusModal } from "..";
 import dayjs from "dayjs";
 
 import { toast } from "@/libs/mantine-toast";
-import { Link } from "react-router-dom";
 
 export const FollowUpList = ({
   data,
@@ -55,7 +44,7 @@ export const FollowUpList = ({
     getAllSearchParams,
     handleChangePatientType,
     handleChangeStatus,
-    onPaginate,
+
     onSearch,
   } = useFollowUpFilter();
 
@@ -69,9 +58,7 @@ export const FollowUpList = ({
   const start = date?.[0]?.toISOString() ?? undefined;
   const end = date?.[1]?.toISOString() ?? undefined;
 
-  const [isOpen, { open, close }] = useDisclosure();
-
-  const notFound = <p className="text-center">-</p>;
+  const [isOpen, { close }] = useDisclosure();
 
   const formatFollowUp = (
     followUp: FollowUp,
@@ -218,7 +205,7 @@ export const FollowUpList = ({
         )}
         {data?.data && (
           <>
-            <Table
+            {/*    <Table
               headerMapping={tableHeaders}
               data={data?.data}
               renderCells={(data) => ({
@@ -282,7 +269,15 @@ export const FollowUpList = ({
                 total={Math.ceil(data?.count / limit)}
                 onChange={onPaginate}
               />
-            )}
+            )} */}
+
+            <TableSection
+              data={data}
+              userType={userType}
+              setId={setId}
+              page={page}
+              limit={limit}
+            />
           </>
         )}
       </div>

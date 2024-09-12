@@ -1,17 +1,16 @@
 import { useState } from "react";
 import { DatesRangeValue } from "@mantine/dates";
 
-import {useGetFollowUps} from "..";
-import {Tab,useFollowUpFilter,FollowUpList} from "../.."
+import { useGetFollowUps } from "..";
+import { Tab, useFollowUpFilter, FollowUpList } from "../..";
 
 export const FollowupList = () => {
-
   const today = new Date();
-  const aWeek =new Date();
+  const aWeek = new Date();
   aWeek.setDate(today.getDate() + 7);
 
-
-  const {getAllSearchParams,handleChangeTab,onDateRangeChange} =useFollowUpFilter()
+  const { getAllSearchParams, handleChangeTab, onDateRangeChange } =
+    useFollowUpFilter();
   const {
     page = 1,
     limit = 10,
@@ -23,24 +22,22 @@ export const FollowupList = () => {
     follow_up_type,
   } = getAllSearchParams();
 
-
   const [date, setDate] = useState<DatesRangeValue | Date[] | null>([
     start ? new Date(start) : today,
     end ? new Date(end) : aWeek,
   ]);
 
-  const {data,isLoading}=useGetFollowUps({
+  const { data, isLoading } = useGetFollowUps({
     limit,
-    skip: (page-1)* limit,
+    skip: (page - 1) * limit,
     search,
     follow_up_type: follow_up_type ?? "SCHEDULED",
     start: date?.[0]?.toISOString() ?? undefined,
     end: date?.[1]?.toISOString() ?? undefined,
-    status:status??"pending",
+    status: status ?? "pending",
     patient_type,
     sort: "follow_up_date",
-  })
-
+  });
 
   const handleChangeDateRange = (value: DatesRangeValue | Date[] | null) => {
     setDate(value);
@@ -56,15 +53,16 @@ export const FollowupList = () => {
     }
   };
 
-  return <FollowUpList
-  data={data}
-  isLoading={isLoading}
-  handleChangeDateRange={handleChangeDateRange}
-  tabHandler={tabHandler}
-  page={page}
-  date={date}
-  limit={limit}
-  userType="child"
-/>;
-
+  return (
+    <FollowUpList
+      data={data}
+      isLoading={isLoading}
+      handleChangeDateRange={handleChangeDateRange}
+      tabHandler={tabHandler}
+      page={page}
+      date={date}
+      limit={limit}
+      userType="child"
+    />
+  );
 };

@@ -25,11 +25,11 @@ const defaultOpts: Partial<Options> = {
 
 export const toast = {
   show(opt: Options) {
-notifications.show({
-  ...opt,
-  ...defaultOpts,
-  position: opt.position as NotificationPosition | undefined,
-});
+    notifications.show({
+      ...opt,
+      ...defaultOpts,
+      position: opt.position as NotificationPosition | undefined,
+    });
   },
   success(opt: Options) {
     this.show({
