@@ -1,9 +1,8 @@
 import { useBaseFilter } from "@/hooks";
-
 import { useSearchParams } from "react-router-dom";
 import { DatesRangeValue } from "@mantine/dates";
 
-export const useChildSaleFilter = () => {
+export const useParentSaleFilter = () => {
   const [, setSearchParams] = useSearchParams();
   const { removeFalsyValues, getAllSearchParams } = useBaseFilter();
 

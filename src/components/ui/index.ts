@@ -1,6 +1,5 @@
 export * from "./icon";
 export { Icon } from "./icon";
-
 export * from "./link";
 export * from "./title";
 export * from "./button";
@@ -12,6 +11,8 @@ export * from "./pagination";
 export * from "./table";
 export * from "./search-box";
 export * from "./export-button";
+export * from "./date-picker-input";
+export * from "./select";
 export * from "./date-picker-input";
 export * from "./select";
 export * from "./tabs";
