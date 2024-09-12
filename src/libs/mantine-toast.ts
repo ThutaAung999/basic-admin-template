@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { notifications } from "@mantine/notifications";
 import { NotificationProps } from "@mantine/core";
+import { NotificationPosition } from "node_modules/@mantine/notifications/lib/notifications.store";
 
 type Options = {
   title?: string;
@@ -24,7 +25,11 @@ const defaultOpts: Partial<Options> = {
 
 export const toast = {
   show(opt: Options) {
-    notifications.show({ ...opt, ...defaultOpts });
+    notifications.show({
+      ...opt,
+      ...defaultOpts,
+      position: opt.position as NotificationPosition | undefined,
+    });
   },
   success(opt: Options) {
     this.show({
