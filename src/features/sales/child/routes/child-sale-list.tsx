@@ -6,9 +6,6 @@ import { Loader, Paper } from "@mantine/core";
 
 import { DatesRangeValue } from "@mantine/dates";
 
-
-
-
 export const ChildSaleList = () => {
   return <div>child-sale-list</div>;
 };
