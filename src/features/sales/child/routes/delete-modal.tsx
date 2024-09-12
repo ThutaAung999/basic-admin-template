@@ -63,7 +63,7 @@ export const DeleteModal = ({
           },
         );
       } catch (error) {
-        //console.error("Failed to delete the item", error);
+        console.error("Failed to delete the item", error);
       } finally {
         setIsModalOpen(false);
         setSelectedId(null);
