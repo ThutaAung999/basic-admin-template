@@ -46,7 +46,7 @@ export const FollowUpList = ({
   const [value, setValue] = useState(search);
   const [isOpen, { close }] = useDisclosure();
 
-   return (
+  return (
     <div>
       <HeaderSection
         userType={userType}
