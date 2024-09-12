@@ -2,7 +2,7 @@ import { useBaseFilter } from "@/hooks";
 import { useSearchParams } from "react-router-dom";
 
 export const useFollowUpFilter = () => {
-  const [_, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
   const { removeFalsyValues, getAllSearchParams } = useBaseFilter();
 
   const handleChangePatientType = (value: string | null) => {

@@ -1,13 +1,13 @@
 import { useBaseFilter } from "@/hooks";
-import { ComboboxItem } from "@mantine/core";
+
 import { useSearchParams } from "react-router-dom";
 import { DatesRangeValue } from "@mantine/dates";
 
 export const useChildSaleFilter = () => {
-  const [_, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
   const { removeFalsyValues, getAllSearchParams } = useBaseFilter();
 
-  const handleMembershipChange = (value: string | null, _: ComboboxItem) => {
+  const handleMembershipChange = (value: string | null) => {
     setSearchParams(() =>
       removeFalsyValues({
         ...getAllSearchParams(),
@@ -17,6 +17,7 @@ export const useChildSaleFilter = () => {
     );
   };
 
+  
   const onPurchasedDateRangeChange = (
     value: DatesRangeValue | Date[] | null,
   ) => {
