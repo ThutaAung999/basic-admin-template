@@ -2,7 +2,7 @@ import { Header, Searchbox, Select } from "@/components";
 
 import { FollowUp } from "../types";
 
-interface Props {
+interface HeaderProps {
   userType: string;
   data:
     | {
@@ -28,7 +28,7 @@ export const HeaderSection = ({
   handleChangeStatus,
   debouncedOnSearch,
   statusData,
-}: Props) => {
+}: HeaderProps) => {
   return (
     <>
       <Header
