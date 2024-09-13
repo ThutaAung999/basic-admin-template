@@ -28,9 +28,7 @@ import { MdDelete } from "react-icons/md";
 import { ChildSaleDeleteModal } from "../components/child-sale-delete-modal";
 import { FaInfoCircle } from "react-icons/fa";
 import { CallRecord } from "@/features/calllogs";
-import { CallLogModal } from '../../../calllogs/routes/call-log-modal';
-
-
+import { CallLogModal } from "../../../calllogs/routes/call-log-modal";
 
 interface TextProps extends MantineTextProps {
   header: string;
