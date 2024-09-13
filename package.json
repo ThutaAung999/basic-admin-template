@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "eslint:check": "eslint . --report-unused-disable-directives --max-warnings 0", 
+    "eslint:check": "eslint . --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prettier:check": "prettier ./src --check",
     "prettier:format": "prettier ./src --write",
@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
+    "@mantine/carousel": "^7.12.2",
     "@mantine/core": "^7.12.2",
     "@mantine/dates": "^7.12.2",
     "@mantine/hooks": "^7.12.2",
