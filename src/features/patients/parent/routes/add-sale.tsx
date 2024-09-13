@@ -8,13 +8,12 @@ import {
 import { Group, Radio, SimpleGrid, Text } from "@mantine/core";
 import dayjs from "dayjs";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { SaleDto, saleSchema } from "../schema/sale";
+import { MotherSaleDto, motherSaleSchema, useCreateMotherSale } from "..";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { toast } from "@/libs/mantine-toast";
-import { Child } from "../../types";
-import { useCreateMotherSale } from "../../parent";
-import { CHILD_PATIENT_TYPES } from "@/features/followups";
+import { Mother } from "../../types";
+import { MOTHER_PATIENT_TYPES } from "@/features/followups";
 
 const paymentMethod = [
   { value: "kbz", label: "KBZ" },
@@ -45,14 +44,14 @@ const saleDurations = [
   { label: "12 months", value: "372" },
 ];
 
-export const AddSaleForm = ({
+export const MotherSaleForm = ({
   isOpen,
   close,
   patient,
 }: {
   isOpen: boolean;
   close: () => void;
-  patient?: Child;
+  patient?: Mother;
 }) => {
   const {
     register,
@@ -60,20 +59,20 @@ export const AddSaleForm = ({
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<SaleDto>({
-    resolver: zodResolver(saleSchema),
+  } = useForm<MotherSaleDto>({
+    resolver: zodResolver(motherSaleSchema),
     defaultValues: {
-      amount: "",
       remark: "",
+      amount: "",
     },
   });
 
   const { mutate: createMotherSale } = useCreateMotherSale();
-  const onSubmit: SubmitHandler<SaleDto> = (data) => {
+  const onSubmit: SubmitHandler<MotherSaleDto> = (data) => {
     // need to add patient objectID like this(get from patient data)
     // const patient = "66b9b9114a6b34001532ebec";
-    const patientId = patient?._id;
-    data.patient = patientId;
+    data.patient = patient?._id;
+    reset();
 
     createMotherSale(
       { data },
@@ -106,7 +105,7 @@ export const AddSaleForm = ({
       >
         <div className="flex mb-4">
           <Text fw={500}>{patient?.name}</Text>
-          <Text className=" text-gray-400 ms-2">HN:{patient?.hn}</Text>
+          <Text className=" text-gray-400 ms-2">{patient?.patient_number}</Text>
         </div>
         <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="xl" className="mb-8">
           <div className="flex flex-col gap-y-4">
@@ -149,7 +148,7 @@ export const AddSaleForm = ({
               render={({ field }) => (
                 <Select
                   {...field}
-                  data={CHILD_PATIENT_TYPES}
+                  data={MOTHER_PATIENT_TYPES}
                   label="Customer Type"
                   withAsterisk
                   error={errors?.customer_type?.message}

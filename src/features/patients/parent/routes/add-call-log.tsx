@@ -17,16 +17,14 @@ import {
 } from "@mantine/core";
 import { DateTimePicker, TimeInput } from "@mantine/dates";
 import dayjs from "dayjs";
-
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { CallLogDto, callLogSchema } from "../schema/call-log";
+import { MotherCallLogDto, motherCallLogSchema } from "../schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useCreateMotherCallLog, useGetMotherDiagnosis } from "../api";
 import { toast } from "@/libs/mantine-toast";
-import { useCreateChildCallLog } from "../api";
-import { Child } from "../../types";
-import { useGetChildDiagnoses } from "../../api/get-child-diagnoses";
+import { Mother } from "../../types";
 
-export const CallLogForm = ({
+export const MotherCallLogForm = ({
   isOpen,
   close,
   patient,
@@ -34,14 +32,14 @@ export const CallLogForm = ({
 }: {
   isOpen: boolean;
   close: () => void;
-  patient?: Child;
+  patient?: Mother;
   setActiveTab: React.Dispatch<React.SetStateAction<string | null>>;
 }) => {
   const [currentTime, setCurrentTime] = useState(dayjs().format("HH:mm:ss"));
   const [isRunning, setIsRunning] = useState(true);
   const [checked, setChecked] = useState(false);
 
-  const { data: callDiagnosis, isLoading } = useGetChildDiagnoses({
+  const { data: callDiagnosis, isLoading } = useGetMotherDiagnosis({
     skip: 0,
     limit: 0,
     type: "new",
@@ -54,11 +52,13 @@ export const CallLogForm = ({
     formState: { errors },
     setValue,
     reset,
-  } = useForm<CallLogDto>({
-    resolver: zodResolver(callLogSchema),
+  } = useForm<MotherCallLogDto>({
+    resolver: zodResolver(motherCallLogSchema),
     defaultValues: {
       call_start_time: new Date(),
       phone: "",
+      call_type: "",
+      diagnosis: "",
       hopi: "",
       initial_treatment: "",
       chief_complaint: "",
@@ -99,13 +99,13 @@ export const CallLogForm = ({
     setValue("call_end_time", combinedDateTime.toDate());
   };
 
-  const { mutate: createChildCallLog } = useCreateChildCallLog();
+  const { mutate: createMotherCallLog } = useCreateMotherCallLog();
 
-  const onSubmit: SubmitHandler<CallLogDto> = (data) => {
+  const onSubmit: SubmitHandler<MotherCallLogDto> = (data) => {
+    // const hn = "66b9b9114a6b34001532ebec";
     // need to add patient objectID like this(get from patient data)
     data.patient = patient?._id;
-
-    createChildCallLog(
+    createMotherCallLog(
       { data },
       {
         onSuccess: () => {
@@ -143,15 +143,15 @@ export const CallLogForm = ({
         {isLoading && <Loader />}
         {callDiagnosis && (
           <>
-            <SimpleGrid cols={{ base: 1, xs: 2 }} spacing="xl" className="mb-4">
+            <SimpleGrid cols={2} spacing="xl" className="mb-4">
               <div className="flex">
                 <Text fw={500}>{patient?.name}</Text>
-                <Text className=" text-gray-400 ms-2">HN:{patient?.hn}</Text>
+                <Text className=" text-gray-400 ms-2">
+                  {patient?.patient_number}
+                </Text>
               </div>
               <div className="justify-self-end">
-                <Button className="" onClick={handleViewClick}>
-                  VIEW CALL LOGS
-                </Button>
+                <Button onClick={handleViewClick}>VIEW CALL LOGS</Button>
               </div>
             </SimpleGrid>
             <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="xl" className="mb-8">
@@ -225,7 +225,8 @@ export const CallLogForm = ({
                   control={control}
                   render={({ field }) => (
                     <Select
-                      {...field}
+                      value={field.value}
+                      onChange={field.onChange}
                       data={callDiagnosisOptions}
                       label="Call Diagnosis"
                       withAsterisk
@@ -235,23 +236,12 @@ export const CallLogForm = ({
                 />
               </div>
               <div className="flex flex-col gap-y-4">
-                {/* mother does not need is follow up needed field */}
                 <div className="flex md:mt-6 gap-x-4">
+                  {/* Mother field */}
                   <Checkbox
                     label="Need follow up"
                     checked={checked}
                     onChange={(e) => setChecked(e.currentTarget.checked)}
-                  />
-                  <Controller
-                    name="is_medicine_required"
-                    control={control}
-                    render={({ field }) => (
-                      <Checkbox
-                        checked={field.value}
-                        onChange={field.onChange}
-                        label="Medicine"
-                      />
-                    )}
                   />
                 </div>
                 {checked && (
@@ -272,7 +262,7 @@ export const CallLogForm = ({
                     <Textarea
                       label="Follow up comment"
                       placeholder="here..."
-                      {...register("follow_up_comment")}
+                      {...register("follow_up_reason")}
                     />
                   </>
                 )}

@@ -9,9 +9,7 @@ import {
 import {
   Diagnosis,
   getChildDiagnoses,
-  getMotherDiagnoses,
   useGetChildDiagnoses,
-  useGetMotherDiagnoses,
 } from "@/features/patients";
 
 //import {  getChildDiagnoses} from '../../patients/child/api/get-child-diagnoses'
@@ -24,6 +22,10 @@ import { toast } from "@/libs/mantine-toast";
 //import { useDiagnosisFilter } from "../hooks";
 
 import { useBaseFilter } from "@/hooks";
+import {
+  getMotherDiagnoses,
+  useGetMotherDiagnoses,
+} from "@/features/patients/parent/api/get-mother-diagnoses";
 export const DiagnosisList = () => {
   const { tab = "child" } = useParams();
 

@@ -1,9 +1,10 @@
 import React from "react";
 import { Modal, Text, Group, Divider, Grid } from "@mantine/core";
 import { Button } from "@/components";
-import { CallRecord } from "..";
-import { formatDateTime, formatDate } from "../../../patients/utils/dateUtils";
+
 import { FaCheck } from "react-icons/fa6";
+import { CallRecord } from "../../type";
+import { formatDate, formatDateTime } from "@/features/utils";
 
 interface CallLogModalProps {
   opened: boolean;
