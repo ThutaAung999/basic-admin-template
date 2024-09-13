@@ -27,8 +27,10 @@ import { ReactNode, useState } from "react";
 import { MdDelete } from "react-icons/md";
 import { ChildSaleDeleteModal } from "../components/child-sale-delete-modal";
 import { FaInfoCircle } from "react-icons/fa";
-import { CallLogModal } from "@/features/calllog/child/routes/call-log-modal";
-import { CallRecord } from "@/features/calllog/child";
+import { CallRecord } from "@/features/calllogs";
+import { CallLogModal } from '../../../calllogs/routes/call-log-modal';
+
+
 
 interface TextProps extends MantineTextProps {
   header: string;
@@ -314,7 +316,9 @@ export const PatientInfo = () => {
                           medicineRequired:
                             data?.is_medicine_required === true
                               ? "Yes"
-                              : "NO" || "-",
+                              : data?.is_medicine_required === false
+                                ? "NO"
+                                : "-",
                           chiefComplaint: data?.chief_complaint || "-",
                           hopi: data?.hopi || "-",
                           initialTreatement: data?.initial_treatment || "-",
@@ -363,7 +367,7 @@ export const PatientInfo = () => {
                           dayjs(data?.expiration_date).format("MMM DD YYYY") ||
                           "-",
                         duration: data?.duration || "-",
-                        amount: `MMK ${data?.amount} ` || "-",
+                        amount: data?.amount ? `MMK ${data?.amount} ` : "-",
                         paymentMethod:
                           data?.payment_provider.toUpperCase() || "-",
                         remark: data?.remark || "-",
@@ -372,7 +376,9 @@ export const PatientInfo = () => {
                         membership:
                           data?.is_extension === true
                             ? "Extension"
-                            : "New Member" || "-",
+                            : data?.is_extension === false
+                              ? "New Member"
+                              : "-",
                         action: (
                           <Tooltip label="Remove">
                             <div
