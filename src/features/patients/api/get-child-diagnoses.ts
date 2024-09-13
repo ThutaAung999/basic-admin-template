@@ -1,5 +1,5 @@
 import { api } from "@/libs/axios";
-import { Diagnosis, GetDiagnosis } from "../../types";
+import { Diagnosis, GetDiagnosis } from "../types";
 import { useQuery } from "@tanstack/react-query";
 
 export const getChildDiagnoses = async (queries: GetDiagnosis) => {
