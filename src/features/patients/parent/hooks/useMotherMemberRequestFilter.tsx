@@ -1,5 +1,5 @@
 import { useBaseFilter } from "@/hooks";
-import { ComboboxItem } from "@mantine/core";
+
 import { DatesRangeValue } from "@mantine/dates";
 
 import { useSearchParams } from "react-router-dom";
@@ -11,10 +11,7 @@ export const useMotherMemberRequestFilter = (
   const [searchParams, setSearchParams] = useSearchParams();
   const { removeFalsyValues, getAllSearchParams } = useBaseFilter();
 
-  const handleMotherMemberTypeChange = (
-    value: string | null,
-    _: ComboboxItem,
-  ) => {
+  const handleMotherMemberTypeChange = (value: string | null) => {
     setSearchParams(() =>
       removeFalsyValues({
         ...getAllSearchParams(),
