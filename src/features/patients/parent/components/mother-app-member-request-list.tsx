@@ -12,7 +12,7 @@ import { PatientSubscription, UpdateData } from "../..";
 
 import { STATUA_VALUE } from "@/features/sharedConstants";
 import { useNavigate } from "react-router-dom";
-import { useUpdatePackageSubscription } from "../api";
+import { useMotherUpdatePackageSubscription } from "../api";
 
 interface PatientTableProps {
   data: PatientSubscription[];
@@ -38,7 +38,7 @@ export const MotherAppMemberRequest = ({
   isLoading,
 }: PatientTableProps) => {
   const navigate = useNavigate();
-  const mutation = useUpdatePackageSubscription();
+  const mutation = useMotherUpdatePackageSubscription();
 
   const [modalState, setModalState] = useState({
     type: "",

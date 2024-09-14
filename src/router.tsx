@@ -16,6 +16,7 @@ import { ChildCalllogs, ParentCalllogs } from "./features/calllogs";
 
 import { ChildSaleList } from "./features/sales/child/routes/child-sale-list";
 import { FollowupList } from "./features/followups/child/routes";
+import { AppRegisteredUsers } from './features/app-registered-users/routes/app-registered-users';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       { path: "mother_sales", element: <ParentSaleList /> },
       { path: "follow-ups", element: <FollowupList /> },
       { path: "/mother/follow-ups", element: <ParentFollowupList /> },
+      {
+        path: "app_users",
+        element: <AppRegisteredUsers />,
+      },
     ],
   },
 
