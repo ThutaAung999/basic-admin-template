@@ -89,3 +89,12 @@ export const motherNavItems: NavItem[] = [
     type: "mother",
   },
 ];
+
+export const appManagement: NavItem[] = [
+  {
+    href: "/app_users",
+    text: "App Registered Patients",
+    activeIcon: "childPatientActive",
+    inActiveIcon: "childPatientInActive",
+  },
+];

@@ -16,7 +16,7 @@ const handleForCallStatus = async ({
   return response.data;
 };
 
-export const useUpdatePackageSubscription = () => {
+export const useMotherUpdatePackageSubscription = () => {
   const queryClient = useQueryClient();
 
   return useMutation<

@@ -27,6 +27,12 @@ export const formatDateTime = (
 ): string => {
   return dayjs(dateString).tz(timeZone).format("MMM DD, YYYY h:mm A");
 };
+export const formatTime = (
+  dateString: string,
+  timeZone: string = dayjs.tz.guess(),
+): string => {
+  return dayjs(dateString).tz(timeZone).format(" h:mm A");
+};
 
 export const calculateAge = (dob: string | Date): string => {
   const birthDate = new Date(dob);
