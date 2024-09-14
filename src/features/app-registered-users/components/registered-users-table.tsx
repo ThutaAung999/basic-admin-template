@@ -4,7 +4,7 @@ import { Table, Pagination } from "@/components";
 import { User, useRegisteredUsersFilter } from "..";
 import { formatDate } from "@/features/utils";
 
-import { calculateAge, formatTime } from '../../utils/dateUtils';
+import { calculateAge, formatTime } from "../../utils/dateUtils";
 
 interface RegisteredUserTableProps {
   data: User[];

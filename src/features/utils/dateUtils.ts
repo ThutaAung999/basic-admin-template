@@ -34,7 +34,6 @@ export const formatTime = (
   return dayjs(dateString).tz(timeZone).format(" h:mm A");
 };
 
-
 export const calculateAge = (dob: string | Date): string => {
   const birthDate = new Date(dob);
   const today = new Date();

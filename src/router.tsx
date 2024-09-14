@@ -16,7 +16,7 @@ import { ChildCalllogs, ParentCalllogs } from "./features/calllogs";
 
 import { ChildSaleList } from "./features/sales/child/routes/child-sale-list";
 import { FollowupList } from "./features/followups/child/routes";
-import { AppRegisteredUsers } from './features/app-registered-users/routes/app-registered-users';
+import { AppRegisteredUsers } from "./features/app-registered-users/routes/app-registered-users";
 
 const router = createBrowserRouter([
   {

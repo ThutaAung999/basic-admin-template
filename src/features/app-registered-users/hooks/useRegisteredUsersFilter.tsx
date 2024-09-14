@@ -3,7 +3,7 @@ import { DatesRangeValue } from "@mantine/dates";
 import { useSearchParams } from "react-router-dom";
 
 export const useRegisteredUsersFilter = () => {
-  const [_, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
   const { removeFalsyValues, getAllSearchParams } = useBaseFilter();
 
   const onRegisteredDateRangeChange = (

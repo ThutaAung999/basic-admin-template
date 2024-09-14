@@ -14,7 +14,6 @@ interface RegisteredUsersExportAndFilterProps {
   isExportEnabled: boolean;
   dateValue: DatesRangeValue;
   hasData: boolean;
-  
 }
 
 export const RegisteredUsersExportAndFilter: React.FC<
@@ -25,7 +24,7 @@ export const RegisteredUsersExportAndFilter: React.FC<
   formatData,
   isExportEnabled,
   dateValue,
-  hasData
+  hasData,
 }) => {
   return (
     <Paper withBorder shadow="10">
@@ -44,7 +43,7 @@ export const RegisteredUsersExportAndFilter: React.FC<
           format={formatData}
           className=" text-green-900 "
           filename="child_call_log_export.csv"
-          disabled={isExportEnabled || hasData }
+          disabled={isExportEnabled || hasData}
         />
       </div>
     </Paper>

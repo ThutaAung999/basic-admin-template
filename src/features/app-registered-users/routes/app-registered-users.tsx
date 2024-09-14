@@ -103,8 +103,8 @@ export const AppRegisteredUsers = () => {
     os: user?.os_platform ? user?.os_platform : "-",
     app_version: user?.app_version ? user?.app_version : "-",
   });
-  const isExportEnabled= !startDate || !endDate;
-  
+  const isExportEnabled = !startDate || !endDate;
+
   const hasData = !(data?.data && data.data.length > 0);
   return (
     <div>
